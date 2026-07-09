@@ -61,24 +61,31 @@ At the end of every session or autonomous run, you must run a **Reflex Skill**
 
 ## 6. Standing Authorization (Self-Improvement Push)
 
-The user has granted **standing pre-approval** to commit and push changes that
-demonstrably improve this self-improving system's **efficiency and quality** —
+The user has granted **standing pre-approval** to commit and push any change
+that demonstrably improves **efficiency or quality** anywhere in the
+repository — Claude's own operating assets *and* product/application code —
 without asking for confirmation each time.
 
 Scope and guardrails:
 
-- **Applies to:** Claude's own operating assets — `CLAUDE.md`, `.claude/skills/`,
-  `program.md`, and related configuration that governs how Claude works.
-- **Bar for "improvement":** The change must be **demonstrable**, not
-  speculative. Prefer a scalar signal (see §3) — fewer tokens/steps, faster
-  completion, a passing test, a corrected failure. If you cannot point to why it
-  is objectively better, it is not covered by this authorization.
+- **Applies to:** the whole repository — `CLAUDE.md`, `.claude/skills/`,
+  `program.md`, and product/application code alike.
+- **Bar for "improvement" (all must hold):**
+  1. **Demonstrable, not speculative** — point to a scalar signal (see §3):
+     fewer tokens/steps, faster completion, lower latency, less code, a fixed
+     failure.
+  2. **Tests pass** — the existing test suite (and any relevant linter/build)
+     is green after the change. If there is no way to verify, treat it as a
+     judgment call and ask first.
+  3. **Behavior-preserving** — the change makes the same thing faster/cleaner;
+     it does not alter intended behavior or product decisions.
 - **Journal it:** Commit each such change with a clear message stating the
   improvement and its confidence label (see §4), so `git log` remains the
   experiment journal.
-- **Still ask when:** the change is a judgment call, alters intended behavior,
-  is hard to reverse, or reaches beyond Claude's own operating assets into
-  product/application code. Pre-approval covers self-improvement, not
+- **Still ask when:** the improvement can't be demonstrated or verified, the
+  change is a judgment call, it alters intended behavior or a product decision,
+  or it is hard to reverse (schema/data migrations, deletes, public API
+  changes). Pre-approval covers verified, behavior-preserving improvements — not
   everything.
 
 ## Why This Works
