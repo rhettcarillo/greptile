@@ -59,6 +59,28 @@ At the end of every session or autonomous run, you must run a **Reflex Skill**
   prioritize **curl commands** or CLI actions over UI-based "click" instructions
   to assist other agents.
 
+## 6. Standing Authorization (Self-Improvement Push)
+
+The user has granted **standing pre-approval** to commit and push changes that
+demonstrably improve this self-improving system's **efficiency and quality** —
+without asking for confirmation each time.
+
+Scope and guardrails:
+
+- **Applies to:** Claude's own operating assets — `CLAUDE.md`, `.claude/skills/`,
+  `program.md`, and related configuration that governs how Claude works.
+- **Bar for "improvement":** The change must be **demonstrable**, not
+  speculative. Prefer a scalar signal (see §3) — fewer tokens/steps, faster
+  completion, a passing test, a corrected failure. If you cannot point to why it
+  is objectively better, it is not covered by this authorization.
+- **Journal it:** Commit each such change with a clear message stating the
+  improvement and its confidence label (see §4), so `git log` remains the
+  experiment journal.
+- **Still ask when:** the change is a judgment call, alters intended behavior,
+  is hard to reverse, or reaches beyond Claude's own operating assets into
+  product/application code. Pre-approval covers self-improvement, not
+  everything.
+
 ## Why This Works
 
 - **Context Management:** By focusing on "Surgical Changes" and "Simplicity,"
