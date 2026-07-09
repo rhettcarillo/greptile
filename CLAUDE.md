@@ -166,6 +166,24 @@ Downstream consumers include other AI agents, not just humans.
 
 ---
 
+## 8. Device Sync — Union Auto-Merge (no subtraction)
+
+Work arrives from multiple devices (e.g. laptop and mobile), each on its own
+`claude/*` branch. Treat all device branches as **one body of work** and keep
+them unioned so nothing drifts and nothing is lost.
+
+- **At session start:** `git fetch --all --prune`, then union-merge every other
+  `claude/*` branch into the working branch with
+  `git merge --allow-unrelated-histories`. Resolve overlaps by keeping the
+  richer content — never drop a file or a distinct section.
+- **No subtraction — ever.** A merge must not remove a file or a unique section
+  present on any device branch. When two versions of the same file diverge,
+  combine them; dedupe only literal restatements of the same idea.
+- **At session end:** push the working branch so the union is durable.
+- **One canonical branch:** the repo's default branch is the single source of
+  truth. Consolidate device branches into it, and delete a device branch only
+  once its full content is confirmed present in the union.
+
 ## Why This Works
 
 - **Context Management:** Focusing on surgical changes and simplicity keeps
